@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>계산기 페이지</title>
+</head>
+
+<body>
+	<div>
+		<!-- 인풋타입을 폼 태그로 감싸서 서버CalcServlet에 보낸다 -->
+		<form id="frmCalc" action="http://localhost/CalcServlet"> 
+			<input type="number" name="num1" id="" palceholder="숫자1"><br>
+			<input type="number" name="num2" id="" palceholder="숫자2"><br>
+			<input type="button" id="btnConfirm" value="확인">
+		</form>
+	</div>
+	<script>
+		// 폼이 날라가는 코드
+		document.getElementById('btnConfirm')
+		.addEventListener('click',function(){
+			//폼을 날릴 때 submit 	
+			document.getElementById('frmCalc').submit();
+		});
+	</script>
+</body>
+
+</html>
