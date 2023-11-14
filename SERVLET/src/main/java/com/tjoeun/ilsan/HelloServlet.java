@@ -14,6 +14,7 @@ public class HelloServlet extends HttpServlet{
 		try {
 			PrintWriter printWriter = res.getWriter();
 			printWriter.write("HelloServlet");
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

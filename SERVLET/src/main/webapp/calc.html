@@ -4,33 +4,68 @@
 <head>
 	<meta charset="UTF-8">
 	<title>계산기 페이지</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		div {
+			margin-top: 20px;
+			/* 위쪽 간격 조절 */
+			margin-bottom: 20px;
+			/* 아래쪽 간격 조절 */
+		}
+	</style>
 </head>
 
 <body>
 	<div>
-		<h1>계산 정보를 입력하세요</h1>
-		<h3>정보를 입력하고 완료버튼을 누르세요</h3>
+		<h1>계산기</h1>
+		<h3>계산 정보를 입력하고 완료 버튼을 누르세요</h3>
 	</div>
-	
+
 	<div>
 		<!-- 인풋타입들을 폼 태그로 감싸고 폼을 전송할 주소를 action으로 정의 -->
-		<form id="frmCalc" action="http://localhost/CalcServlet">
-			<!-- 숫자 입력 인풋 1,2 --> 
-			<input type="number" name="num1" id="" placeholder="숫자1"><br>
-			<input type="number" name="num2" id="" placeholder="숫자2"><br>
-			<!-- 확인 버튼 --> 
-			<input type="button" id="btnConfirm" value="확인">
+		<form id="frmCalc" method="post" action="http://localhost/CalcServlet">
+			<!-- 숫자 입력 인풋 1,2 -->
+			<div>
+				<input type="number" name="num1" id="" placeholder="숫자1"><br>
+				<input type="number" name="num2" id="" placeholder="숫자2"><br>
+			</div>
+			<!-- 라디오 버튼 -->
+			<div>
+				<input type='radio' name='operation' value='sum' onclick='getGender(event)' />더하기
+				<input type='radio' name='operation' value='substract' onclick='getGender(event)' />빼기
+				<input type='radio' name='operation' value='multiply' onclick='getGender(event)' />곱하기
+				<input type='radio' name='operation' value='divide' onclick='getGender(event)' />나누기
+			</div>
+			<!-- 확인 버튼 -->
+			<div>
+				<input type="button" id="btnConfirm" value="확인">
+			</div>
 		</form>
 	</div>
-	
+
 	<script>
 		// id가 btnConfirm인 엘레멘트를 찾는다
 		document.getElementById('btnConfirm')
-		// 이벤트리스너 추가해서 클릭되면 펑션 실행
-		.addEventListener('click',function(){
-			// id가 frmCalc인 폼(숫자 정보 인풋 포함)을 찾아 (폼에 정의된 action 주소로)submit 	
-			document.getElementById('frmCalc').submit();
-		});
+			// 이벤트리스너 추가해서 클릭되면 펑션 실행
+			.addEventListener('click', function () {
+
+				// 폼 안에 있는 모든 입력 필드에 대해 값을 입력안하면 0으로 처리 반복
+				var formInputs = document.getElementById('frmCalc').elements;
+				for (var i = 0; i < formInputs.length; i++) {
+					// 숫자 입력 필드인 경우에만 처리
+					if (formInputs[i].type === 'number') {
+						// 값이 비어있을 경우 0으로 설정
+						if (formInputs[i].value === '') {
+							formInputs[i].value = '0';
+						}
+					}
+				}
+				// id가 frmCalc인 폼(숫자 정보 인풋 포함)을 찾아 (폼에 정의된 action 주소로)submit 	
+				document.getElementById('frmCalc').submit();
+			});
 	</script>
 </body>
 
