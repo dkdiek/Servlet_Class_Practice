@@ -10,17 +10,26 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
-  <!-- HelloServlet 추가 -->
+   <servlet>
+  	<servlet-name>MainServlet</servlet-name>
+  	<servlet-class>com.tjoeun.ilsan.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MainServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- HelloServlet 추가
   <servlet>
-  	<servlet-name>HelloServlet</servlet-name><!-- mapping name과 동일하게 작성 -->
-  	<servlet-class>com.tjoeun.ilsan.HelloServlet</servlet-class><!-- 패키지 주소 포함 경로 작성 -->
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>com.tjoeun.ilsan.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>HelloServlet</servlet-name>
-  	<url-pattern>/HelloServlet</url-pattern><!-- 해당 파일의 접속 url 설정 -->
+  	<url-pattern>/HelloServlet</url-pattern>
   </servlet-mapping>
   
-  <!-- CalcServlet 추가 -->
   <servlet>
   	<servlet-name>CalcServlet</servlet-name>
   	<servlet-class>com.tjoeun.ilsan.calc.CalcServlet</servlet-class>
@@ -29,4 +38,6 @@
   	<servlet-name>CalcServlet</servlet-name>
   	<url-pattern>/CalcServlet</url-pattern>
   </servlet-mapping>
+  -->
+  
 </web-app>
