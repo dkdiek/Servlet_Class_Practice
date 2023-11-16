@@ -1,3 +1,7 @@
+<!-- Directive 선언 없어도 돌아감 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +30,7 @@
 
 	<div>
 		<!-- 인풋타입들을 폼 태그로 감싸고 폼을 전송할 주소를 action으로 정의 -->
-		<form id="frmCalc" method="post" action="http://localhost/calc/compute.do">
+		<form id="frmCalc" method="post" action="http://localhost/calc/calcResult.do">
 			<!-- 숫자 입력 인풋 1 -->
 			<div>
 				<input type="number" name="num1" id="num1" placeholder="숫자1"><br>
